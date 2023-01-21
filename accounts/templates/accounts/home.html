@@ -1,0 +1,38 @@
+{% extends 'accounts/base.html' %}
+
+{% block css %}
+
+{% endblock css %}
+{% block title %} Homepage {% endblock title %}
+
+{% block content %}
+
+<!--Dashboard--> 
+
+  <div class="nav-area">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Greenmark Online</a>
+    </nav>
+  </div>
+
+  <br>
+  
+    <div class="container jumbotron">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+
+        {% if user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'accounts:dashboard' %}">Go to Dashboard</a>
+        <a class="btn btn-outline-success" href="{% url 'accounts:logout' %}">Logout</a>
+        {% else %}
+        <a class="btn btn-success" href="{% url 'accounts:register' %}">Register</a>
+        <a class="btn btn-outline-success" href="{% url 'accounts:login' %}">Login</a>
+        {% endif %}
+      </p>
+    </div>
+
+
+{% endblock content %}
